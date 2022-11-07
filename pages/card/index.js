@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/Image'
 import Sidebar from "../../components/Sidebar"
 import Header from "../../components/Header"
 
@@ -19,7 +19,7 @@ function index() {
                 <path d="M0.984835 7.76517C0.851702 7.63203 0.839599 7.4237 0.948526 7.27689L0.984835 7.23483L4.2195 4L0.984835 0.765165C0.851702 0.632031 0.839599 0.4237 0.948526 0.276894L0.984835 0.234835C1.11797 0.101702 1.3263 0.0895987 1.47311 0.198526L1.51517 0.234835L5.01516 3.73484C5.1483 3.86797 5.1604 4.0763 5.05147 4.22311L5.01516 4.26517L1.51517 7.76517C1.36872 7.91161 1.13128 7.91161 0.984835 7.76517Z" fill="#BBC2D0"/>
               </svg>
               <span className="text-Success">Смартфон Apple iPhone 11 128 Gb Slim Box черный</span></p>
-
+ 
               <div className="mt-[30px] px-[30px] bg-white">
               <div className="relative left-[calc(100%-46px)] -top-5 rounded-full bg-BgRed w-[60px] h-[60px] hover:w-[237px] hover:left-[calc(100%-250px)] translate-x-1 transparent group duration-75 ease-in-out cursor-pointer">
                 <Image src="/basket.svg" width="20" height="20" alt="base" className="relative top-5 left-5" />
@@ -79,17 +79,17 @@ function index() {
                         <span className="text-Gray bg-white ml-3 mt-1 text-sm">x3</span>
                       </div>
                     </div>
-                    <div class="inline-flex rounded-md shadow-sm mt-7" role="group">
-                      <button type="button" class="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent rounded-l-lg border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
+                    <div className="inline-flex rounded-md shadow-sm mt-7" role="group">
+                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent rounded-l-lg border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
                         3 мес
                       </button>
-                      <button type="button" class="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
+                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
                         6 мес
                       </button>
-                      <button type="button" class="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
+                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
                         9 мес
                       </button>
-                      <button type="button" class="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent rounded-r-md border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
+                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent rounded-r-md border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
                         12 мес
                       </button>
                     </div>
@@ -106,7 +106,7 @@ function index() {
                 </div>
               </div>
               
-              <form className="mt-[30px] flex flex-col" forHtml="sales">
+              <form className="mt-[30px] flex flex-col" forhtml="sales">
                 <p className="text-Gray">Акции</p>
                 <div className="mt-5 flex flex-row">
                     <div className="flex-none mb-2 py-1.5 px-2.5 rounded-md bg-Pink">
@@ -134,7 +134,7 @@ function index() {
                       <p className="text-Gray text-sm font-normal">Apple EarPods</p>
                     </div>
                   <div className="flex-none">
-                    <input type="checkbox" className="w-6 h-6" checked />
+                    <input type="checkbox" className="w-6 h-6" defaultChecked />
                   </div>
                 </div>
                 <div className="mt-5 pt-5 flex flex-row border-t">
@@ -146,7 +146,7 @@ function index() {
                       <p className="text-Gray text-sm font-normal">- 10 000 сум</p>
                     </div>
                   <div className="flex-none">
-                    <input type="checkbox" className="w-6 h-6" checked />
+                    <input type="checkbox" className="w-6 h-6" defaultChecked />
                   </div>
                 </div>
                 <div className="mt-5 pt-5 flex flex-row border-t">
@@ -158,7 +158,7 @@ function index() {
                       <p className="text-Gray text-sm font-normal">- 10 000 сум</p>
                     </div>
                   <div className="flex-none">
-                    <input type="checkbox" className="w-6 h-6" checked />
+                    <input type="checkbox" className="w-6 h-6" defaultChecked />
                   </div>
                 </div>
               </form>
