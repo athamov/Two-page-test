@@ -3,7 +3,7 @@ import Link from 'next/link';
 function Header() {
   return (
     <div className="flex row justify-between h-[70px]">
-      <Link href="/application/checkout" className="ml-16 mt-[26px] text-xs leading-[19px] font-normal">LOGO</Link>
+      <Link href="/application/checkout" className="ml-16 mt-[26px] text-xs leading-[19px] font-normal hover:scale-150">LOGO</Link>
       <div className="flex row justify-end">
         <div className="relative mt-1 mr-5 px-3 w-10 group hover:cursor-pointer hover:w-[280px] hover:bg-Success hover:rounded-full duration-150 ease-linear">
           <div>

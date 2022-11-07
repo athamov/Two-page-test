@@ -53,7 +53,7 @@ export default function Home() {
 
           <div className="grid grid-cols-5 gap-5 mt-5">
             {data && data.map((item)=>
-              <div className="bg-white p-3 rounded-xl w-[192px] shadow-md shadow-Green cursor-pointer group/item " key={item.id} onClick={() => router.push('./iphone-11-128-black')}>
+              <div className="bg-white p-3 rounded-xl w-[192px] shadow-md shadow-Green cursor-pointer group/item " key={item.id} onClick={() => router.push('./checkout/iphone-11-128-black')}>
                 <div className="relative bg-BgColor p-3 w-[168px] h-[168px]">
                   <div className="absolute">
                     {item.swop && <div className="bg-Pink py-1 px-[10px] rounded-md group-hover/item:-translate-x-9 group-hover/item:animate-pulse">
@@ -94,13 +94,13 @@ export default function Home() {
               </svg>
             </span>
             <ul className="flex flex-row justify-center">
-              <li className={id==1?active:passive}>1</li>
-              <li className={id==2?active:passive} onClick={() => router.push('./2')}>2</li>
-              <li className={id==3?active:passive} onClick={() => router.push('./3')}>3</li>
-              <li className={id==4?active:passive} onClick={() => router.push('./4')}>4</li>
-              <li className={id==5?active:passive} onClick={() => router.push('./5')}>5</li>
+              <li className={id==1?active:passive} onClick={() => router.push('./checkout/1')}>1</li>
+              <li className={id==2?active:passive} onClick={() => router.push('./checkout/2')}>2</li>
+              <li className={id==3?active:passive} onClick={() => router.push('./checkout/3')}>3</li>
+              <li className={id==4?active:passive} onClick={() => router.push('./checkout/4')}>4</li>
+              <li className={id==5?active:passive} onClick={() => router.push('./checkout/5')}>5</li>
               <li className="px-[13px] py-[5px] hover:bg-Blue hover:text-white rounded-[10px]"><input type="text" className="w-3 bg-BgColor" placeholder="..."/></li>
-              <li className={id==10?active:passive} onClick={() => router.push('./10')}>10</li>
+              <li className={id==10?active:passive} onClick={() => router.push('./checkout/10')}>10</li>
             </ul>
             <span className="w-[30px] h-[30px] hover:border-2">
               <svg width="12" height="20" viewBox="0 0 12 20" className="m-auto mt-1" fill="none" xmlns="http://www.w3.org/2000/svg" >

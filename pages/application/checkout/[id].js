@@ -28,7 +28,6 @@ export default function Home() {
       <Header />
       <div className="min-h-screen flex">
         <Sidebar />
-
         <div className="flex flex-col m-5 bg-BgColor w-[calc(100%-263px)] px-7">
           <div className="mt-5 text-xs text-Gray">
             <p className="flex">Заявки
@@ -94,7 +93,7 @@ export default function Home() {
               </svg>
             </span>
             <ul className="flex flex-row justify-center">
-              <li className={id==1?active:passive}>1</li>
+              <li className={id==1?active:passive} onClick={() => router.push('./1')}>1</li>
               <li className={id==2?active:passive} onClick={() => router.push('./2')}>2</li>
               <li className={id==3?active:passive} onClick={() => router.push('./3')}>3</li>
               <li className={id==4?active:passive} onClick={() => router.push('./4')}>4</li>

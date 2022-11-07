@@ -1,6 +1,6 @@
 function Sidebar() {
   return (
-    <div className="bg-Blue w-20 hover:w-[263px] hover:pl-[30px] group/sidebar duration-150 ease-in pt-5 rounded-tr-3xl">
+    <div className="bg-Blue w-20 hover:w-[223px] hover:pl-[30px] group/sidebar duration-150 ease-in pt-5 rounded-tr-3xl">
       <ul className="fixed flex flex-col flex-end w-20 group-hover/sidebar:w-[193px]">
         <li className=" hover:bg-Success rounded-l-full pl-[30px] pt-[14px] pb-[16px]">
           <a href="#" className="flex">
