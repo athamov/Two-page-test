@@ -4,15 +4,21 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  images: {
-    remotePatterns: [
+  async redirects() {
+    return [
       {
-        protocol: 'https',
-        hostname: 'drive.google.com',
-        port: '0',
-        pathname: '/',
+        source: '/',
+        // has:[
+        //   {
+        //     type:"query",
+        //     key:'id',
+        //     value:"1"
+        //   }
+        // ],
+        destination: '/application/checkout',
+        permanent: false,
       },
-    ],
+    ]
   },
 }
 

@@ -1,8 +1,30 @@
-import Image from 'next/image'
-import Sidebar from "../../components/Sidebar"
-import Header from "../../components/Header"
+import {useEffect, useState} from 'react'
 
-function index() {
+import Image from 'next/image'
+import Sidebar from "../../../../components/Sidebar"
+import Header from "../../../../components/Header"
+
+function Card() {
+  const [ month, setMonth ] = useState();
+  const [ amount, setAmount ] = useState("");
+
+  useEffect(() => {
+    if(month) {
+      setAmount("")
+      let amountNumber = Math.floor(7300000 / month);
+      while(amountNumber/1000>0) {
+        let slice = amountNumber%1000;
+        setAmount(prev=>`${slice} ${prev}`);
+        amountNumber=Math.floor(amountNumber/1000);
+      }
+    }
+  },[month])
+
+  const handleMonth = (e) => {
+    // console.log(e)
+    setMonth(e);
+  }
+
   return (
     <>
       <Header />
@@ -21,9 +43,10 @@ function index() {
               <span className="text-Success">Смартфон Apple iPhone 11 128 Gb Slim Box черный</span></p>
  
               <div className="mt-[30px] px-[30px] bg-white">
-              <div className="relative left-[calc(100%-46px)] -top-5 rounded-full bg-BgRed w-[60px] h-[60px] hover:w-[237px] hover:left-[calc(100%-250px)] translate-x-1 transparent group duration-75 ease-in-out cursor-pointer">
+              <div className="relative left-[calc(100%-46px)] -top-5 rounded-full bg-BgRed w-[60px] h-[60px] hover:w-[237px] hover:left-[calc(100%-250px)] translate-x-1 transparent group duration-150 ease-in-out cursor-pointer">
                 <Image src="/basket.svg" width="20" height="20" alt="base" className="relative top-5 left-5" />
-                <div className="relative invisible left-12 flex flex-row group-hover:visible hover:duration-150">
+                <div className="relative invisible group-hover:w-[200px] left-12 group-hover:flex flex-row group-hover:visible 
+              hover:duration-150">
                   <span className="text-sm text-black mr-2">Перейти в корзину</span>
                   <span className="relative -top-2.5 text-sm rounded-full pt-2 w-10 h-10 text-center text-BgRed bg-white">1</span>
                 </div>
@@ -74,22 +97,22 @@ function index() {
                         <p className="text-sm text-Gray font-normal">Общая цена (с наценкой)</p>
                         <p className="text-sm text-black font-semibold">7 300 000 сум</p>
                       </div>
-                      <div className="flex flex-row mt-3">
-                        <p className="max-w-max text-sm bg-BgRed py-1 px-1.5 rounded-md text-white">2 433 333 сум</p>
-                        <span className="text-Gray bg-white ml-3 mt-1 text-sm">x3</span>
-                      </div>
+                      {month && <div className="flex flex-row mt-3">
+                        <p className="max-w-max text-sm bg-BgRed py-1 px-1.5 rounded-md text-white">{amount} сум</p>
+                        <span className="text-Gray bg-white ml-3 mt-1 text-sm">x{month}</span>
+                      </div>}
                     </div>
                     <div className="inline-flex rounded-md shadow-sm mt-7" role="group">
-                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent rounded-l-lg border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
+                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent rounded-l-lg border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white" onClick={()=>handleMonth(3)}>
                         3 мес
                       </button>
-                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
+                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white" onClick={()=>handleMonth(6)}>
                         6 мес
                       </button>
-                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
+                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white" onClick={()=>handleMonth(9)}>
                         9 мес
                       </button>
-                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent rounded-r-md border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white">
+                      <button type="button" className="w-[120px] h-[38px] text-sm font-medium text-Success bg-transparent rounded-r-md border border-Success hover:bg-Success hover:text-white focus:z-10 focus:ring-2 focus:ring-Success focus:bg-Success focus:text-white" onClick={()=>handleMonth(12)}>
                         12 мес
                       </button>
                     </div>
@@ -98,7 +121,7 @@ function index() {
 
                   <div className="mt-5">
                     <p className="text-base">Общие характеристики</p>
-                    <p className="w-[250px] text-black text-base">Тип: моноблок (классический) Стандарт: 2G, 3G, 4G (LTE), 5G Операционная система: iOS 14</p>
+                    <p className="w-[270px] text-black text-base">Тип: моноблок (классический) Стандарт: 2G, 3G, 4G (LTE), 5G Операционная система: iOS 14</p>
                     <div className="mt-5">
                       <a href="#" className="text-semibold text-Success">Показать все</a>
                     </div>
@@ -174,4 +197,4 @@ function index() {
   )
 }
 
-export default index
+export default Card

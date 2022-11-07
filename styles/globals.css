@@ -24,3 +24,7 @@ main {
 * {
   box-sizing: border-box;
 }
+
+.active__button {
+  @apply bg-Success text-white
+}

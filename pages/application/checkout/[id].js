@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
 
 import Image from "next/image"
-import Header from "../components/Header"
-import Sidebar from "../components/Sidebar"
+import { useRouter } from 'next/router'
+
+import Header from "../../../components/Header"
+import Sidebar from "../../../components/Sidebar"
 
 export default function Home() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+  const [active] = useState("px-[13px] py-[5px] hover:bg-Blue hover:text-white rounded-[10px] active__button");
+  const [passive] = useState("px-[13px] py-[5px] hover:bg-Blue hover:text-white rounded-[10px]")
+
+  const router = useRouter()
+  const { id } = router.query
+
   useEffect(() => {
     const fetchData = async () => {
       const a = await fetch('/api/api');
@@ -14,10 +22,6 @@ export default function Home() {
     };
     fetchData().then((response) => {setData(response);});
   },[]);
-
-  useEffect(() => {
-    console.log(data)
-  },[data])
 
   return (
     <>
@@ -49,10 +53,10 @@ export default function Home() {
 
           <div className="grid grid-cols-5 gap-5 mt-5">
             {data && data.map((item)=>
-              <div className="bg-white p-3 rounded-xl w-[192px]" key={item.id}>
+              <div className="bg-white p-3 rounded-xl w-[192px] shadow-md shadow-Green cursor-pointer group/item " key={item.id} onClick={() => router.push('./iphone-11-128-black')}>
                 <div className="relative bg-BgColor p-3 w-[168px] h-[168px]">
                   <div className="absolute">
-                    {item.swop && <div className="bg-Pink py-1 px-[10px] rounded-md ">
+                    {item.swop && <div className="bg-Pink py-1 px-[10px] rounded-md group-hover/item:-translate-x-9 group-hover/item:animate-pulse">
                       <svg width="12" height="10" className="relative top-1" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.36264 6.35999V7.16443C7.36264 7.41992 7.41366 7.63428 7.51437 7.80127C7.65329 8.03174 7.88131 8.16382 8.14022 8.16382C8.39389 8.16382 8.64596 8.04028 8.88937 7.79688L11.5463 5.13989C12.1297 4.55652 12.1297 3.6073 11.5463 3.02393L8.88937 0.366943C8.64596 0.123413 8.39389 0 8.14022 0C7.75314 0 7.36264 0.309082 7.36264 0.99939V1.72998C3.59042 1.95276 0.467625 4.84766 0.00351372 8.63782C-0.0224872 8.84949 0.097874 9.05212 0.296238 9.13062C0.35239 9.15283 0.410862 9.16357 0.468601 9.16357C0.614841 9.16357 0.756687 9.09509 0.847019 8.97168C2.09189 7.27075 4.09067 6.25525 6.19369 6.25525C6.58334 6.25525 6.97519 6.29041 7.36264 6.35999V6.35999Z" fill="#E83274"/>
                       </svg>
@@ -60,20 +64,20 @@ export default function Home() {
                           <path d="M11.6954 0.868915C11.497 0.790302 11.2707 0.855732 11.1446 1.02797C9.89983 2.72878 7.90105 3.74429 5.79802 3.74429C5.40837 3.74429 5.01653 3.70913 4.62907 3.63955V2.83511C4.62907 2.1448 4.23845 1.83571 3.85149 1.83571C3.59782 1.83571 3.34575 1.95925 3.10222 2.20278L0.445236 4.85964C-0.138016 5.44302 -0.138016 6.39224 0.445358 6.97574L3.10222 9.6326C3.34575 9.87613 3.59782 9.99955 3.85149 9.99955C4.23845 9.99955 4.62907 9.69046 4.62907 9.00015V8.26956C8.40141 8.04678 11.5241 5.15188 11.9882 1.36184C12.0142 1.15004 11.8938 0.947407 11.6954 0.868915V0.868915Z" fill="#E83274"/>
                         </svg>
                     </div>}
-                    { item.gift && <div className="bg-Purple py-3 px-[10px] mt-3 rounded-md">
+                    { item.gift && <div className="bg-Purple py-3 px-[10px] mt-3 rounded-md group-hover/item:-translate-x-9  group-hover/item:animate-pulse">
                         <Image src='/gift.svg' width="16" height="16" alt="gift"/>
                       </div> }
-                    { item.discount && <div className="bg-BgOrange py-3 px-[10px] mt-3 rounded-md">
+                    { item.discount && <div className="bg-BgOrange py-3 px-[10px] mt-3 rounded-md group-hover/item:-translate-x-9  group-hover/item:animate-pulse">
                       <Image src='/discount.svg' width="16" height="16" alt="discount" />
                       </div>}
-                    { item.isIPhone && <div className="bg-Green py-3 px-[10px] mt-3 rounded-md">
+                    { item.isIPhone && <div className="bg-Green py-3 px-[10px] mt-3 rounded-md group-hover/item:-translate-x-9 group-hover/item:animate-pulse">
                         <Image src='/discountGreen.svg' width="16" height="16" alt="green discount"/>
                       </div>}
                   </div>
-                <Image className="m-auto" src={ item.imageUrl } alt={ item.name } width={ item.width } height={ item.height }/>
+                <Image className="m-auto group-hover/item:scale-125 group-hover/item:-translate-y-6" src={ item.imageUrl } alt={ item.name } width={ item.width } height={ item.height }/>
               </div>
-              <div className="mt-3">
-                <h3 className="text-sm">{ item.name }</h3>
+              <div className="mt-3 group-hover/item:scale-125 group-hover/item:translate-x-6">
+                <h3 className="text-xs">{ item.name }</h3>
                 <p className="mt-3 text-sm">{ item.price }</p>
                 <div className="flex flex-row mt-3">
                   <p className="max-w-max text-sm bg-BgRed py-1 px-1.5 rounded-md text-white">{ item.sale_price }</p>
@@ -83,7 +87,6 @@ export default function Home() {
             </div>
             )}
         </div>
-
           <pagination className="flex flex-row justify-between mt-[30px]">
             <span className="w-[30px] h-[30px] hover:border-2">
               <svg width="12" height="20" viewBox="0 0 12 20" className="m-auto mt-1" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -91,13 +94,13 @@ export default function Home() {
               </svg>
             </span>
             <ul className="flex flex-row justify-center">
-              <li className="px-[13px] py-[5px] hover:bg-Blue hover:text-white rounded-[10px]">1</li>
-              <li className="px-[13px] py-[5px] hover:bg-Blue hover:text-white rounded-[10px] bg-Success text-white">2</li>
-              <li className="px-[13px] py-[5px] hover:bg-Blue hover:text-white rounded-[10px]">3</li>
-              <li className="px-[13px] py-[5px] hover:bg-Blue hover:text-white rounded-[10px]">4</li>
-              <li className="px-[13px] py-[5px] hover:bg-Blue hover:text-white rounded-[10px]">5</li>
+              <li className={id==1?active:passive}>1</li>
+              <li className={id==2?active:passive} onClick={() => router.push('./2')}>2</li>
+              <li className={id==3?active:passive} onClick={() => router.push('./3')}>3</li>
+              <li className={id==4?active:passive} onClick={() => router.push('./4')}>4</li>
+              <li className={id==5?active:passive} onClick={() => router.push('./5')}>5</li>
               <li className="px-[13px] py-[5px] hover:bg-Blue hover:text-white rounded-[10px]"><input type="text" className="w-3 bg-BgColor" placeholder="..."/></li>
-              <li className="px-[13px] py-[5px] hover:bg-Blue hover:text-white rounded-[10px]">10</li>
+              <li className={id==10?active:passive} onClick={() => router.push('./10')}>10</li>
             </ul>
             <span className="w-[30px] h-[30px] hover:border-2">
               <svg width="12" height="20" viewBox="0 0 12 20" className="m-auto mt-1" fill="none" xmlns="http://www.w3.org/2000/svg" >
