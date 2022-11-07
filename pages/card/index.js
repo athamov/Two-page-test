@@ -1,4 +1,4 @@
-import Image from 'next/Image'
+import Image from 'next/image'
 import Sidebar from "../../components/Sidebar"
 import Header from "../../components/Header"
 
