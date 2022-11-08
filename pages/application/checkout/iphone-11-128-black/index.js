@@ -45,7 +45,7 @@ function Card() {
               <div className="mt-[30px] px-[30px] bg-white">
               <div className="relative left-[calc(100%-46px)] -top-5 rounded-full bg-BgRed w-[60px] h-[60px] hover:w-[237px] hover:left-[calc(100%-250px)] translate-x-1 transparent group duration-150 ease-in-out cursor-pointer">
                 <Image src="/basket.svg" width="20" height="20" alt="base" className="relative top-5 left-5" />
-                <div className="relative invisible group-hover:w-[200px] left-12 group-hover:flex flex-row group-hover:visible 
+                <div className="relative invisible -left-10 group-hover:w-[200px] group-hover:left-12 group-hover:flex flex-row group-hover:visible 
               hover:duration-150">
                   <span className="text-sm text-black mr-2">Перейти в корзину</span>
                   <span className="relative -top-2.5 text-sm rounded-full pt-2 w-10 h-10 text-center text-BgRed bg-white">1</span>
